@@ -5,10 +5,11 @@ import matplotlib.pyplot as plt
 class LowPassFilter:
     def __init__(self, y_initial_measure, alpha=0.9):
         self.y_estimate = y_initial_measure
-        # Code
- 
+        self.alpha = alpha  # 이전 값 반영 정도 (0.0 ~ 1.0)
+
     def estimate(self, y_measure):
-        # Code
+        # 지수평활 필터 공식
+        self.y_estimate = self.alpha * self.y_estimate + (1 - self.alpha) * y_measure
 
 
 if __name__ == "__main__":
